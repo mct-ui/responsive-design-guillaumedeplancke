@@ -3,24 +3,21 @@
 \*------------------------------------*/
 
 @font-face {
-    font-family: "HK Grotesk Web";
+    font-family: 'HK Grotesk Web';
     font-weight: 200;
-    src: url("../fonts/hkgrotesk-light-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-light-webfont.woff") format("woff")
+    src: url('../fonts/hkgrotesk-light-webfont.woff2') format('woff2'), url('../fonts/hkgrotesk-light-webfont.woff') format('woff');
 }
 
 @font-face {
-    font-family: "HK Grotesk Web";
+    font-family: 'HK Grotesk Web';
     font-weight: 400;
-    src: url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-regular-webfont.woff") format("woff")
+    src: url('../fonts/hkgrotesk-regular-webfont.woff2') format('woff2'), url('../fonts/hkgrotesk-regular-webfont.woff') format('woff');
 }
 
 @font-face {
-    font-family: "HK Grotesk Web";
+    font-family: 'HK Grotesk Web';
     font-weight: 600;
-    src: url("../fonts/hkgrotesk-medium-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-medium-webfont.woff") format("woff")
+    src: url('../fonts/hkgrotesk-medium-webfont.woff2') format('woff2'), url('../fonts/hkgrotesk-medium-webfont.woff') format('woff');
 }
 
 /*------------------------------------*\
@@ -36,7 +33,7 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "HK Grotesk Web", sans-serif;
+    font-family: 'HK Grotesk Web', sans-serif;
     color: #111;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -64,7 +61,7 @@ html {
  */
 
 ::selection {
-    background: #5051DB;
+    background: #5051db;
     color: white;
     text-shadow: none;
 }
@@ -159,7 +156,7 @@ figcaption {
     font-size: 12px;
     line-height: 16px;
     margin-top: 8px;
-    color: #3C3C42;
+    color: #3c3c42;
 }
 
 hr {
@@ -170,18 +167,18 @@ hr {
 }
 
 a {
-    color: #5051DB;
-    transition: all .1s ease-in-out;
+    color: #5051db;
+    transition: all 0.1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: #5051DB;
+    color: #5051db;
 }
 
 a:hover,
 a:focus {
-    color: #3E3EA8;
+    color: #3e3ea8;
 }
 
 /*------------------------------------*\
@@ -210,6 +207,11 @@ a:focus {
     .o-row {
         padding-left: 48px;
         padding-right: 48px;
+    }
+
+    .o-row--md {
+        padding-top: 48px;
+        padding-bottom: 24px;
     }
 
     .o-row--lg {
@@ -246,9 +248,9 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
-        flex-basis: 100%;
-    }
+.o-layout__item {
+    flex-basis: 100%;
+}
 
 /* gutter modifiers, these affect o-layout__item too */
 
@@ -348,9 +350,63 @@ a:focus {
     align-content: space-between;
 }
 
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flow-root;
+}
+
+.o-section + .o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list-reset {
+    list-style: none;
+    padding: 0;
+}
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
 
 /*
     Component: Logo
@@ -372,9 +428,65 @@ a:focus {
     }
 }
 
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav--meta {
+    font-size: 16px;
+}
+
+.c-nav__link {
+    text-decoration: none;
+    padding: 8px 0;
+    display: block;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    color: #6c6c75;
+}
+
+.is-active .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: flex;
+        gap: 32px;
+    }
+}
+
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0;
+}
 
 /*
     Utilities: max-width
@@ -664,18 +776,18 @@ a:focus {
         text-decoration: underline;
     }
     a[href]:after {
-        content: " (" attr(href) ")";
+        content: ' (' attr(href) ')';
     }
     abbr[title]:after {
-        content: " (" attr(title) ")";
+        content: ' (' attr(title) ')';
     }
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
+    a[href^='#']:after,
+    a[href^='javascript:']:after {
+        content: '';
     }
     pre {
         white-space: pre-wrap !important;
