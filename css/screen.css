@@ -225,6 +225,11 @@ a:focus {
     background-color: #F7F7F7;
 }
 
+.o-row--gradient {
+    background: linear-gradient(to top right, #5051DB 0%,#3887F7 100%);
+    color: white;
+}
+
 /*
     Objects: Container
     ---
@@ -602,7 +607,25 @@ a:focus {
     background-color: #3E3EA8;
 }
 
+/* inversed colors */
 
+.c-link-cta--inverse,
+.c-link-cta--inverse:visited,
+.c-link-cta--inverse:active {
+    color: white;
+}
+
+.c-link-cta--inverse::after {
+    background-color: white;
+}
+
+.c-link-cta--inverse:hover {
+    color: white;
+}
+
+.c-link-cta--inverse:hover::after {
+    background-color: white !important;
+}
 
 /*------------------------------------*\
   #UTILITIES
